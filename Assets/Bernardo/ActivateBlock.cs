@@ -9,6 +9,7 @@ public class ActivateBlock : MonoBehaviour
         if (player != null)
         {
             player.IsBlockActivated = true;
+            gameObject.SetActive(false);
         }
     }
 }

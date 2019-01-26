@@ -9,6 +9,7 @@ public class ActivateDash : MonoBehaviour
         if(player != null)
         {
             player.IsDashActivated = true;
+            gameObject.SetActive(false);
         }
     }
 }
