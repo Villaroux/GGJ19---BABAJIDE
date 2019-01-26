@@ -3,7 +3,7 @@
 public class ProjectileSpawner : MonoBehaviour
 {
     public GameObject projetilePreFab;
-    
+
     public enum Direction
     {
         Up,
@@ -17,7 +17,7 @@ public class ProjectileSpawner : MonoBehaviour
     // Start is called before the first frame update
     private void Awake()
     {
-        switch(dir)
+        switch (dir)
         {
             case (Direction.Left):
                 direction = -Vector2.right;
@@ -33,18 +33,14 @@ public class ProjectileSpawner : MonoBehaviour
                 break;
         }
     }
-    private void Start()
-    {
-        SpawnArrow();
-    }
 
-    void SpawnArrow()
+    public void SpawnProjectile()
     {
         var instantiatePreFab = Instantiate(projetilePreFab, transform.position, Quaternion.identity);
 
         Projetile projetile = instantiatePreFab.GetComponent<Projetile>();
 
-        if(projetile !=null)
+        if (projetile != null)
         {
             projetile.Direction = direction;
         }
