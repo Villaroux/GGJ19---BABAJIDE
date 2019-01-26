@@ -95,6 +95,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 10
+  dashKey: 106
+  dashSpeed: 100
+  dashCD: 1.5
+  IsDashActivated: 0
+  blockKey: 107
+  IsBlockActivated: 0
+  blockCD: 1
 --- !u!50 &4571221214946154653
 Rigidbody2D:
   serializedVersion: 4

@@ -21,10 +21,7 @@ public class PlayerController : MonoBehaviour
 
 
 
-    void Start()
-    {
-
-    }
+    
 
     // Update is called once per frame
     void Update()
@@ -37,9 +34,9 @@ public class PlayerController : MonoBehaviour
         //Vector3 horizontal = new Vector3(Input.GetAxis("Horizontal"), 0.0f, 0.0f);
 
         transform.position = transform.position + movement * speed * Time.deltaTime;
+        //Animation
 
-
-        if (Input.GetKeyDown(dashKey) &&  Time.time - dashTimer > dashCD)
+        if (Input.GetKeyDown(dashKey) &&  Time.time - dashTimer > dashCD && IsDashActivated)
         {
             transform.position = transform.position + movement * dashSpeed * Time.deltaTime;
             dashTimerSetup = true;
@@ -47,6 +44,11 @@ public class PlayerController : MonoBehaviour
     }
     void BlockTimer()
     {
+        if (blockTimerSetup)
+        {
+            blocktimer = Time.time;
+            blockTimerSetup = false;
+        }
     }
     void DashTimer()
     {
