@@ -22,5 +22,14 @@ public class Boulder : Projetile
         {
             Debug.Log("DieSquasdasda");
         }
+
+        DestroyAfter dest = GetComponent<DestroyAfter>();
+
+        if (dest != null)
+        {
+            dest.Die = true;
+        }
+
+        gameObject.SetActive(false);
     }
 }

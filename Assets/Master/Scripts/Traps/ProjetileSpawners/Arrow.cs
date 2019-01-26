@@ -18,15 +18,15 @@ public class Arrow : Projetile
     {
         PlayerController player = collision.GetComponent<PlayerController>();
 
-        if(player != null)
+        if (player != null)
         {
             Animator playeranim = player.GetComponent<Animator>();
 
-            if(playeranim != null)
+            if (playeranim != null)
             {
                 AnimatorStateInfo animState = playeranim.GetCurrentAnimatorStateInfo(0);
 
-                if(animState.IsName("Block"))
+                if (animState.IsName("Block"))
                 {
                     return;
                 }
@@ -40,5 +40,13 @@ public class Arrow : Projetile
                 Debug.Log("DIE");
             }
         }
+        DestroyAfter dest = GetComponent<DestroyAfter>();
+
+        if (dest != null)
+        {
+            dest.Die = true;
+        }
+
+        gameObject.SetActive(false);
     }
 }
