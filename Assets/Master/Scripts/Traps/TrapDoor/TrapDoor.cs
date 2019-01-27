@@ -4,12 +4,12 @@ public class TrapDoor : MonoBehaviour
 {
     Animator animCtrl;
     [SerializeField]
-    LayerMask playerMask;
+    LayerMask playerMask = 0;
 
     [SerializeField]
-    float xLenght;
+    float xLenght = 0.0f;
     [SerializeField]
-    float yLenght;
+    float yLenght = 0.0f;
     private void Awake()
     {
         animCtrl = GetComponent<Animator>();

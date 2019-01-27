@@ -4,12 +4,12 @@ public class Spikes : MonoBehaviour
 {
     Animator animCtrl;
     [SerializeField]
-    LayerMask playerMask;
+    LayerMask playerMask = 0;
 
     [SerializeField]
-    float xLenght;
+    float xLenght = 1.0f;
     [SerializeField]
-    float yLenght;
+    float yLenght = 1.0f;
     private void Awake()
     {
         animCtrl = GetComponent<Animator>();

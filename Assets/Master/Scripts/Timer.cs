@@ -12,7 +12,7 @@ public class Timer : MonoBehaviour
     private void Awake()
     {
         timerText = GetComponent<TextMeshProUGUI>();
-        timer = levelTimer * 60.0f;
+        timer = levelTimer * 60.0f + 0.51f;
     }
 
     private void Start()
@@ -23,11 +23,11 @@ public class Timer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        timer -= Time.deltaTime * 100;
+        timer -= Time.deltaTime;
 
         float minutes = Mathf.Floor(timer / 60.0f);
 
-        float seconds = Mathf.RoundToInt(timer % 60);
+        float seconds = Mathf.Floor(timer % 60);
 
         if (timer < 0.0f)
         {
