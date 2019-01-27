@@ -2,18 +2,18 @@
 
 public class TrapTrigger : MonoBehaviour
 {
-    ProjectileSpawner pS;
-    private void Awake()
-    {
-        pS = GetComponentInParent<ProjectileSpawner>();
-    }
+    public ProjectileSpawner[] pS;
+    
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        PlayerController player = collision.GetComponentInParent<PlayerController>();
-
-        if(player != null)
+        if(pS.Length > 0)
         {
-            pS.SpawnProjectile();
+            foreach(var spawner in pS)
+            {
+                spawner.SpawnProjectile();
+            }
+
         }
+        gameObject.SetActive(false);
     }
 }
