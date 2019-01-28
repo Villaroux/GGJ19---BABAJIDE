@@ -8,7 +8,7 @@ public class Dialogue : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        DialogueSystem._instance.ShowDialogue(this);
+        DialogueSystem._instance.Dialogue(this);
         
     }
 }

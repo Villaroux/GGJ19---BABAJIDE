@@ -5,8 +5,8 @@ using System.Collections;
 public class DialogueSystem : MonoBehaviour
 {
     public static DialogueSystem _instance;
-    public TextMeshProUGUI DialogueText;
-
+    TextMeshProUGUI DialogueText;
+    GameObject DialogueTextBox;
     public float textSpeed = 0.1f;
     private void Awake()
     {
@@ -19,14 +19,17 @@ public class DialogueSystem : MonoBehaviour
         {
             Destroy(gameObject);
         }
+        DialogueTextBox = gameObject.transform.GetChild(0).gameObject;
+        DialogueText = GetComponentInChildren<TextMeshProUGUI>();
     }
-    public void ShowDialogue(Dialogue dialogue)
+    public void Dialogue(Dialogue dialogue)
     {
-        DialogueText.gameObject.SetActive(true);
-        StartCoroutine(Dialogue(dialogue));
+        DialogueTextBox.SetActive(true);
+        
+        StartCoroutine(ShowDialogue(dialogue));
     }
 
-    IEnumerator Dialogue(Dialogue dialogue)
+    IEnumerator ShowDialogue(Dialogue dialogue)
     {
         DialogueText.text ="";
 
@@ -43,6 +46,8 @@ public class DialogueSystem : MonoBehaviour
 
             yield return new WaitUntil(() => Input.GetKeyDown(KeyCode.Space));
         }
-        DialogueText.gameObject.SetActive(false);
+        
+        
+        DialogueTextBox.SetActive(false);
     }
 }
