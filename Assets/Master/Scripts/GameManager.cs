@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -20,11 +21,19 @@ public class GameManager : MonoBehaviour
             Destroy(gameObject);
         }
     }
-
+    public void Play()
+    {
+        SceneManager.LoadScene(1);
+    }
+    public void Exit()
+    {
+        Application.Quit();
+    }
     public void YouLose()
     {
         if(!stage1EndScreen.activeInHierarchy)
         stage1EndScreen.SetActive(true);
     }
 
+    
 }

@@ -24,6 +24,8 @@ public class PlayerController : MonoBehaviour
     public float blockCD = 0.0f;
     float blocktimer;
 
+    public Transform recall;
+
 
 
 
@@ -56,6 +58,11 @@ public class PlayerController : MonoBehaviour
         if(Input.GetKeyDown(blockKey))
         {
             playeranime.SetTrigger(BlockParameterName);
+        }
+
+        if (Input.GetKeyDown(KeyCode.B))
+        {
+            transform.position = recall.position;
         }
 
         AnimatorStateInfo currState = playeranime.GetCurrentAnimatorStateInfo(0);
